@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ -E $CFILE -o main.o | ./main.o
+gcc $CFILE -o main.o | ./main.o
