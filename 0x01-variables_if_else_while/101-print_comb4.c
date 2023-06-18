@@ -14,7 +14,8 @@ int main(void)
 		{
 			for (third = 0 ; third <= 9 ; third++)
 			{
-				if (first == second || second == third || first == third || first > second || second > third)
+				if (first == second || second == third || first == third ||
+				first > second || second > third)
 				{
 					continue;
 				}
