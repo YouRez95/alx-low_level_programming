@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "main.h"
 /**
  * main - Function print _putchar
@@ -8,6 +7,6 @@
 
 int main(void)
 {
-	_putchar('A');
+	_putchar('_');
 	return (0);
 }
