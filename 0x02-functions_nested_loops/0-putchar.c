@@ -9,6 +9,5 @@
 int main(void)
 {
 	_putchar('A');
-	_putchar('B');
 	return (0);
 }
