@@ -5,7 +5,7 @@
  *
  * @a: param
  * @b: param
- * Reutrn: sum  of two numbers
+ * Return: sum  of two numbers
  */
 
 int add(int a, int b)
