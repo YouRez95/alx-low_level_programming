@@ -1,8 +1,7 @@
 #include <ctype.h>
 
-/*
- * _isupper - checks the argument if it uppercase
- *
+/**
+ * _isupper - checks  the uppercase
  * @c: params
  *
  * Return: 1 if c  upper else 0
