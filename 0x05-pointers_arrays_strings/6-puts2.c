@@ -13,7 +13,7 @@ void puts2(char *str)
 	{
 		j  = i * 2;
 
-		if (j > strlen(str))
+		if (j >= strlen(str))
 		{
 			break;
 		}
