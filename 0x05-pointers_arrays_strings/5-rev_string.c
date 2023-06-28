@@ -20,10 +20,4 @@ void rev_string(char *s)
 	}
 	/*printf("the reverse s is : %s\n", reversed);*/
 	s = *reversed;
-	
-	/*s = reversed;*/
-	/*
-	*s =  here will be the string in reverse 
-	*/
-
 }
