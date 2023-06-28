@@ -7,11 +7,18 @@
  */
 void puts_half(char *str)
 {
-	unsigned long int i;
+	unsigned long int i, j;
 
+	if (strlen(str) % 2 == 0)
+	{
+		j = strlen(str) / 2;
+	}
+	else
+	{
+		j = strlen(str) / 2 + 1;
+	}
 
-
-	for (i = strlen(str) / 2 + 1 ; i < strlen(str) ; i++)
+	for (i = j ; i < strlen(str) ; i++)
 	{
 		_putchar(str[i]);
 	}
