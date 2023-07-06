@@ -10,13 +10,13 @@
 
 int _sqrt_recursion(int n)
 {
-	double iResult;
-	int fResult;
+	double fResult;
+	int iResult;
 
 	fResult = sqrt((double)n);
 	iResult = fResult;
 
-	if (fResult * iResult == n)
+	if (fResult == iResult)
 		return (iResult);
 	else
 		return (-1);
