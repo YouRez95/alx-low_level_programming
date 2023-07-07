@@ -14,10 +14,10 @@ int main(int  argc, char **argv)
 	long x1;
 	long x2;
 
-	if (argc < 2)
+	if (argc < 1)
 	{
 		printf("Error\n");
-		return (0);
+		return (1);
 	}
 	x1 = strtol(argv[1], NULL, 10);
 	x2 = strtol(argv[2], NULL, 10);
