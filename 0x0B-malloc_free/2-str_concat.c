@@ -15,6 +15,12 @@ char *str_concat(char *s1, char *s2)
 {
 	char *result;
 
+	if (s1 == NULL && strlen(s2) > 0)
+		*s2 = ' ';
+	if (s2 == NULL && strlen(s1) > 0)
+		*s1 = ' ';
+
+
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	result = (char *)malloc(strlen(s1) + strlen(s2) + 1);
