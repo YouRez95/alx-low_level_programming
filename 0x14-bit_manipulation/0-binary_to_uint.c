@@ -13,15 +13,20 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int len = strlen(b);
-	int i = len - 1;
-	unsigned int result = 0;
-	unsigned int pow = 1;
-	int j, k = 0;
+	unsigned int len;
+	int i;
+	unsigned int result;
+	unsigned int pow;
+	int j, k;
 	unsigned int number;
 
 	if (b == NULL)
 		return (0);
+	len = strlen(b);
+	i = len - 1;
+	result = 0;
+	pow = 1;
+	k = 0;
 	while (i >= 0)
 	{
 		number = b[i] - '0';
@@ -33,6 +38,5 @@ unsigned int binary_to_uint(const char *b)
 		i--;
 		j++;
 	}
-
 	return (result / 2);
 }
