@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 #include "main.h"
 
@@ -17,7 +18,7 @@ unsigned int binary_to_uint(const char *b)
 	int i;
 	unsigned int result;
 	unsigned int pow;
-	int j, k;
+	int j;
 	unsigned int number;
 
 	if (b == NULL)
@@ -26,13 +27,12 @@ unsigned int binary_to_uint(const char *b)
 	i = len - 1;
 	result = 0;
 	pow = 1;
-	k = 0;
 	while (i >= 0)
 	{
 		number = b[i] - '0';
-		if (number > 1)
+		if (number > 1 || isalpha(b[i]))
 			return (0);
-		for (j = 0; j <= k; j++)
+		for (j = 0; j <= 0; j++)
 			pow = pow * 2;
 		result += number * pow;
 		i--;
