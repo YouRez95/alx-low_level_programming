@@ -24,22 +24,22 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	buf = malloc(sizeof(char) * 1024);
 
 	fd = open(av[1], O_RDONLY);
-	if (fd == -1)
+	r = read(fd, buf, 1024);
+	if (fd == -1 || r == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	fd2 = open(av[2], O_RDWR | O_CREAT, 0664);
 
-	buf = malloc(sizeof(char) * 1024);
-	r = read(fd, buf, 1024);
+	fd2 = open(av[2], O_RDWR | O_CREAT, 0664);
 	w = write(fd2, buf, r);
-	if (buf == NULL || r == -1 || w == -1)
+	if (buf == NULL || w == -1 || fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", av[2]);
-		exit(98);
+		exit(99);
 	}
 
 	if (close(fd) == -1)
@@ -52,6 +52,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd2);
 		exit(100);
 	}
+	free(buf);
 
 	return (0);
 }
