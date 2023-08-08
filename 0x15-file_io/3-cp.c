@@ -37,6 +37,7 @@ int main(int ac, char **av)
 	if (fd == -1 || r == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", av[1]);
+		free(buf);
 		exit(98);
 	}
 	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -44,6 +45,7 @@ int main(int ac, char **av)
 	if (w == -1 || fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", av[2]);
+		free(buf);
 		exit(99);
 	}
 	closeFile(fd);
