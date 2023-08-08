@@ -4,6 +4,8 @@
 #include <fcntl.h>
 #include "main.h"
 
+void closeFile(int);
+
 /**
  * main - copie the content from av[1] to  the file av[2]
  *
@@ -25,7 +27,11 @@ int main(int ac, char **av)
 		exit(97);
 	}
 	buf = malloc(sizeof(char) * 1024);
-
+	if (buf == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", av[2]);
+		exit(99);
+	}
 	fd = open(av[1], O_RDONLY);
 	r = read(fd, buf, 1024);
 	if (fd == -1 || r == -1)
@@ -33,26 +39,32 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", av[1]);
 		exit(98);
 	}
-
-	fd2 = open(av[2], O_RDWR | O_CREAT, 0664);
+	fd2 = open(av[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	w = write(fd2, buf, r);
-	if (buf == NULL || w == -1 || fd2 == -1)
+	if (w == -1 || fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", av[2]);
 		exit(99);
 	}
+	closeFile(fd);
+	closeFile(fd2);
+	free(buf);
+	return (0);
+}
 
-	if (close(fd) == -1)
+/**
+ * closeFile - close file
+ *
+ * @fd: fd
+ */
+void closeFile(int fd)
+{
+	int c;
+
+	c = close(fd);
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd);
 		exit(100);
 	}
-	if (close(fd2) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd2);
-		exit(100);
-	}
-	free(buf);
-
-	return (0);
 }
