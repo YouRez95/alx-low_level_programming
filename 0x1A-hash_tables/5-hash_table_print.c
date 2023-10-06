@@ -13,6 +13,7 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i;
 	int colon = 0;
 	hash_node_t *traverse;
+
 	if (ht == NULL)
 		return;
 
