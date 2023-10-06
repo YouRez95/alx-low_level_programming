@@ -36,6 +36,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(search_node->key, (char *) key) == 0)
 		{
 			search_node->value = strdup((char *)value);
+			free(ht_item->key);
+			free(ht_item->value);
+			free(ht_item);
 			return (1);
 		}
 
@@ -44,6 +47,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (strcmp(search_node->next->key, (char *)key) == 0)
 			{
 				search_node->value = strdup((char *)value);
+				free(ht_item->key);
+				free(ht_item->value);
+				free(ht_item);
 				return (1);
 			}
 			search_node = search_node->next;
