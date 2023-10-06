@@ -31,7 +31,7 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			if (colon == 1)
 				printf(", ");
-			printf("'%s' : '%s'", traverse->key, traverse->value);
+			printf("'%s': '%s'", traverse->key, traverse->value);
 			traverse = traverse->next;
 			colon = 1;
 		}
