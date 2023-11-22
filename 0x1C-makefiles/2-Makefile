@@ -3,10 +3,10 @@ SRC := $(wildcard *.c)
 OBJ := $(SRC:%.c=%.o)
 NAME := school
 
-all: ${OBJ} ${NAME}
+all: $(NAME)
 
 
-%: %.o main.o
+$(NAME): $(OBJ) main.o
 	$(CC) $^ -o $@ 
 
 %.o: %.c
