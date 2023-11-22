@@ -3,11 +3,8 @@ SRC := $(wildcard *.c)
 OBJ := $(SRC:.c=.o)
 NAME := school
 
-all: $(NAME)
-
-
-$(NAME): $(OBJ)
-	$(CC) $^ -o $@ 
+all: $(OBJ)
+	$(CC) $^ -o $(NAME) 
 
 %.o: %.c
 	$(CC) -c -o $@ $<
