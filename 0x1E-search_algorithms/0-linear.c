@@ -3,13 +3,13 @@
 #include <stdio.h>
 
 /**
- * linear_search - serach for an element in an array of integers
+ * linear_search - search for an element in an array of integers
  *
  * @array: pointer to the first element in the array
  * @size: size of the array
  * @value: the element we want searched
  *
- * Return: -1 if not found else tne index of element
+ * Return: -1 if not found else the index of element
  */
 
 int linear_search(int *array, size_t size, int value)
