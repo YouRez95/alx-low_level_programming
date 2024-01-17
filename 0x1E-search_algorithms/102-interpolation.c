@@ -64,20 +64,20 @@ int interpolation_search(int *array, size_t size, int value)
 	low = 0;
 	high = size - 1;
 
+	if (!array)
+		return (-1);
 	pos = calcul_position(high, low, array, value);
 	if (array[size - 1] < value)
 	{
 		printf("Value checked array[%lu] is out of range\n", pos);
 		return (-1);
 	}
-
 	if (array[pos] == value)
 	{
 		printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
 		return (pos);
 	}
-
-	 printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
+	printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
 	while (array[pos] != value)
 	{
 		if (pos < 0)
