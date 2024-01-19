@@ -80,8 +80,6 @@ int interpolation_search(int *array, size_t size, int value)
 	printf("Value checked array[%lu] = [%d]\n", pos, array[pos]);
 	while (array[pos] != value)
 	{
-		if (pos < 0)
-			return (-1);
 		if (array[pos] > value)
 		{
 			high = pos - 1;
